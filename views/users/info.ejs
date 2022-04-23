@@ -1,0 +1,60 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-4 offset-5" >
+            <img src="https://i.pinimg.com/originals/d6/7f/cb/d67fcb293e7ab5d6fdd92cb9bc639b3b.png" height="250px" width="250px">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-5" >
+            <h1>Details of user</h1> 
+        <h4>Name- <span><%=currentUser.username|| currentUser.displayName%></span></h4>
+        <h4>Email ID-<span><%=currentUser.email%></span></h4>
+        </div>
+    </div>
+    
+
+    <h2>Camps created-</h2>
+    <% if(camps){ %>
+
+    <div class="row">
+        <div class="col-10 offset-1">
+          <table class="table table-info table-hover table-striped table-bordered mt-2">
+            <thead>
+                <tr class="table-light">
+                    <th scope="col" class="col-1 fs-3 text-center">S.No.</th>
+                    <th scope="col" class="col-4 fs-3 text-center">Name of Camp</th>
+                    <th scope="col" class="col-4 fs-3 text-center">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%let i=1%>
+                <% for(let c of camps){ %>
+                    <tr>
+                        <th scope="row" class="fs-4 text-center"><%= i %>.</th>
+                        <td class="fs-4 text-center"><a href="/campgrounds/<%=c._id %>"><%= c.title %> </a></td>
+                        <td class="fs-4 text-center"><%= c.location %></td>
+                    </tr>
+                <% i++ } %>  
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+<% }  else{ %>
+    <h1>No Camps Created</h1>
+    <% } %>
+
+
+
+
+
+
+
+
+
+
+</div>
+
